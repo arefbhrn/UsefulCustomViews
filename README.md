@@ -13,6 +13,7 @@ An Android library, containing a collection of useful custom views
 | AutoFitEditText       | An EditText which fits text in bounds by changing text size. |
 | CustomViewPager       | A ViewPager having ability to turn on/off swiping between pages. |
 | JustifiedTextView     | A TextView that justifies text for both RTL and LTR texts |
+| MaskedEditText        | A library to achieve masked EditText for both RTL and LTR texts |
 | RelativeSizeLayout    | A view group which its width and height will be set by a ratio to its parent's width and height separately. |
 | RoundedCornerLayout   | A container layout that every corner's radius and its background color can be controlled. |
 | ShadowLayout          | A container layout which drops shadow over its children. |
@@ -88,6 +89,34 @@ Use this library in your layout like this:
     android:layout_height="wrap_content" />
  ```
 
+ ---
+ 
+###  Using MaskedEditText :
+
+Use this library in your layout like this:
+```
+<com.arefbhrn.usefulcustomviews.maskededittext.MaskedEditText
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:met_mask="(###) ##-### ####"
+    app:met_allowed_chars="1234567890"
+    app:met_denied_chars="qwertyuiopasdfghjklzxcvbnm"
+    app:met_char_representation="#"
+    app:met_keep_hint="true" />
+ ```
+ 
+####  Supported Attributes
+
+| XML Attribute | Programmatic Setter | Description  |
+| ----------------------------- |-----------| ---------|
+| app:met_mask                  | - | Sets mask to text. |
+| app:met_allowed_chars         | - | Sets acceptable characters. |
+| app:met_denied_chars          | - | Sets unacceptable characters. |
+| app:met_char_representation   | - | Sets character representation. |
+| app:met_keep_hint             | - | Sets keeping hint or hiding it on typing. |
+| -                             | getText() | Returns masked text. |
+| -                             | getRawText() | Sets unmasked text. |
+ 
  ---
  
 ###  Using RelativeSizeLayout :
