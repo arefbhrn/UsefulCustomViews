@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AspectRatioLayout">
+        <!-- If true then height would be set based on width, else width would be set based on height. Default is true -->
+        <attr name="arl_is_ratio_height_to_width" format="boolean" />
+        <!-- Aspect Ratio of width/height or height/width according to is_ratio_height_to_width.
+         It must be between 0.0 and 1.0. Default is 1.0 -->
+        <attr name="arl_aspect_ratio" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomViewPager">
+        <attr name="swipe_enabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RelativeSizeLayout">
+        <!-- Width ratio to its parent's width. It must be between 0.0 and 1.0 -->
+        <attr name="rsl_width_ratio" format="float" />
+        <!-- Height ratio to its parent's height. It must be between 0.0 and 1.0 -->
+        <attr name="rsl_height_ratio" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundedCornerLayout">
+        <attr name="rcl_radius" format="dimension" />
+        <attr name="rcl_radius_top_left" format="dimension" />
+        <attr name="rcl_radius_top_right" format="dimension" />
+        <attr name="rcl_radius_bottom_right" format="dimension" />
+        <attr name="rcl_radius_bottom_left" format="dimension" />
+        <attr name="rcl_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ShadowLayout">
+        <attr name="sl_shadowed" format="boolean" />
+        <attr name="sl_shadow_distance" format="dimension" />
+        <attr name="sl_shadow_angle" format="integer" />
+        <attr name="sl_shadow_radius" format="dimension" />
+        <attr name="sl_shadow_color" format="color" />
+    </declare-styleable>
+
+</resources>
