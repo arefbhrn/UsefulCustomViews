@@ -11,13 +11,14 @@ import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 /**
  * Created by Aref Bahreini Nejad on 2019-09-01
  * Updated on 2019-11-10
  */
-public class ShadowLayout extends FrameLayout {
+public class ShadowLayoutInScrollView extends FrameLayout {
 
 	// Default shadow values
 	private final static float DEFAULT_SHADOW_RADIUS = 30.0F;
@@ -57,17 +58,17 @@ public class ShadowLayout extends FrameLayout {
 	private float mShadowDx;
 	private float mShadowDy;
 
-	public ShadowLayout(final Context context) {
+	public ShadowLayoutInScrollView(final Context context) {
 		this(context, null);
 		init(null);
 	}
 
-	public ShadowLayout(final Context context, final AttributeSet attrs) {
+	public ShadowLayoutInScrollView(final Context context, final AttributeSet attrs) {
 		this(context, attrs, 0);
 		init(attrs);
 	}
 
-	public ShadowLayout(final Context context, final AttributeSet attrs, final int defStyleAttr) {
+	public ShadowLayoutInScrollView(final Context context, final AttributeSet attrs, final int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		init(attrs);
 	}
@@ -114,6 +115,8 @@ public class ShadowLayout extends FrameLayout {
 		} finally {
 			typedArray.recycle();
 		}
+
+		inScrollViewHandler();
 	}
 
 	@Override
@@ -278,6 +281,18 @@ public class ShadowLayout extends FrameLayout {
 
 		// Draw child`s
 		super.dispatchDraw(canvas);
+	}
+
+	private void inScrollViewHandler() {
+		post(() -> {
+			ViewGroup.LayoutParams params = getLayoutParams();
+			params.width = getWidth();
+			params.height = getHeight();
+
+			setLayoutParams(params);
+			requestLayout();
+			postInvalidate();
+		});
 	}
 
 }

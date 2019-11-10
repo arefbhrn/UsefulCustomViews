@@ -25,7 +25,7 @@ Gradle
 
 ```
 dependencies {
-    implementation 'com.github.arefbhrn:usefulcustomviews:1.0.0'
+    implementation 'com.github.arefbhrn:usefulcustomviews:1.0.1'
 }
 ```
 
@@ -200,6 +200,10 @@ Use this library in your layout like this:
 | app:sl_shadow_radius    | setShadowRadius(float shadowRadius) | Sets shadow radius. |
  
  ---
+ 
+###  Using ShadowLayoutInScrollView :
+
+Same as ShadowLayout but only can be usable in scroll views which ShadowLayout won't work.
 
 Contact me
 ===========================
