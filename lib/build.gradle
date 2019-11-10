@@ -41,7 +41,7 @@ install {
             packaging 'aar'
             groupId 'com.arefbhrn.libraries'
             artifactId 'usefulcustomviews'
-            version '1.0.0'
+            version '1.0.1'
 
             licenses {
                 license {
