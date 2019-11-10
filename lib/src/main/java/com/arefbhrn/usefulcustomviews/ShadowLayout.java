@@ -11,11 +11,12 @@ import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 /**
  * Created by Aref Bahreini Nejad on 2019-09-01
- * Updated on 2019-09-01
+ * Updated on 2019-11-10
  */
 public class ShadowLayout extends FrameLayout {
 
@@ -114,6 +115,8 @@ public class ShadowLayout extends FrameLayout {
 		} finally {
 			typedArray.recycle();
 		}
+
+		inScrollViewHandler();
 	}
 
 	@Override
@@ -278,6 +281,18 @@ public class ShadowLayout extends FrameLayout {
 
 		// Draw child`s
 		super.dispatchDraw(canvas);
+	}
+
+	private void inScrollViewHandler() {
+		post(() -> {
+			ViewGroup.LayoutParams params = getLayoutParams();
+			params.width = getWidth();
+			params.height = getHeight();
+
+			setLayoutParams(params);
+			requestLayout();
+			postInvalidate();
+		});
 	}
 
 }
